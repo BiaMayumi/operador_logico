@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <h1> Posso Votar? <h1>
     <form method="POST" action="">
         <label for="idade">Informe a sua idade:</label>
         <br>
