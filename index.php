@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1> Posso Votar? <h1>
+    <h1>Posso Votar?</h1>
     <form method="POST" action="">
         <label for="idade">Informe a sua idade:</label>
         <br>
@@ -18,24 +18,23 @@
     </form>
 
     <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") { //$_server - informações do script 
-        $idade = $_POST["idade"];
 
-        if ($idade < 16 && $idade =="" ) {
-            echo "Você não pode votar.";
-        } elseif ($idade >= 16 && $idade < 18) { // &&- retorna true se os dois operadores forem true, senão retorna para o false.//
-            echo "Seu voto é facultativo.";
-        } elseif ($idade >= 18 && $idade < 65) {
-            echo "Seu voto é obrigatório.";
-        } else {
-            echo "Seu voto é facultativo.";
-        }
-        
+    $idade = filter_input(INPUT_POST,"idade");
+
+    if ($idade < 16) {
+        echo "Você não pode votar";
+    } else if ( $idade >= 16 && $idade <= 18) {
+        echo "O seu voto é facultativo";
+    } else if ($idade >= 19 && $idade <= 65) {
+        echo "O seu voto é obrigatório";
+    } else if ($idade > 65 && $idade <= 120) {
+        echo "O seu voto é facultativo";
+    } else {
+        echo "";
     }
 
-    ?>
+?>
 
 </body>
 
 </html>
-
