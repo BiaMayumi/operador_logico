@@ -20,7 +20,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") { //$_server - informações do script 
         $idade = $_POST["idade"];
 
-        if ($idade < 16 && $idade ) {
+        if ($idade < 16 && $idade =="" ) {
             echo "Você não pode votar.";
         } elseif ($idade >= 16 && $idade < 18) { // &&- retorna true se os dois operadores forem true, senão retorna para o false.//
             echo "Seu voto é facultativo.";
@@ -29,8 +29,7 @@
         } else {
             echo "Seu voto é facultativo.";
         }
-        } else {
-        echo "";
+        
     }
 
     ?>
